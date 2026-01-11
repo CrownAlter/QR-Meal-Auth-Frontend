@@ -1,0 +1,22 @@
+<mat-card class="container">
+    <div class="title">
+      <h2 class="text">QR Code History</h2>
+      <p class="subtext">View and manage your previously generated QR codes</p>
+    </div>
+  
+    <div class="qr-list">
+      <mat-list>
+        <mat-list-item *ngFor="let meal of fullMealHistory" class="qr-log">
+          <div class="logs">
+            <p class="qr-title">{{ meal.mealType | titlecase }} QR Code</p>
+            <p class="qr-date">Generated on {{ meal.dateConsumed | date:'medium' }}</p>
+          </div>
+        </mat-list-item>
+      </mat-list>
+    </div>
+  
+    <button mat-button class="load-more">
+      Load More <mat-icon>expand_more</mat-icon>
+    </button>
+  </mat-card>
+  

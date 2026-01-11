@@ -1,0 +1,129 @@
+/* Container styles */
+.container {
+    max-width: 80%;
+    margin: auto;
+    text-align: center;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Title and subtitle */
+  .title {
+    text-align: left;
+    margin-bottom: 10px;
+  }
+  
+  .text {
+    font-size: 24px;
+    margin-bottom: 3px;
+  }
+  
+  .subtext {
+    font-size: 16px;
+    color: gray;
+    margin-top: 0px;
+  }
+  
+  /* QR Code list */
+  .qr-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  /* QR Log Styling */
+  .qr-log {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding-top: 70px;
+    padding-bottom: 60px;
+    background: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;  /* Spacing between logs */
+  }
+  
+  /* Log Content */
+  .logs {
+    text-align: left;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    flex: 1;
+  }
+  
+  .qr-title {
+    font-weight: bold;
+    font-size: 18px;
+    margin: 0;
+  }
+  
+  .qr-date {
+    color: gray;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  
+  /* Load More Button */
+  .load-more {
+    background-color: white;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 15px;
+    display: flex;
+    align-self: center;
+    gap: 5px;
+    width: 100%;
+  }
+  
+  .load-more mat-icon {
+    font-size: 18px;
+  }
+  
+  /* Responsive Design */
+  @media screen and (max-width: 768px) {
+    .container {
+      max-width: 90%;
+      padding: 15px;
+    }
+  
+    .qr-log {
+      padding-top: 70px;
+      padding-bottom: 60px;
+    }
+  
+    .qr-title {
+      font-size: 16px;
+    }
+  
+    .qr-date {
+      font-size: 12px;
+    }
+  
+    .load-more {
+      font-size: 14px;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .title {
+      font-size: 20px;
+    }
+  
+    .subtext {
+      font-size: 12px;
+    }
+  
+    .qr-log {
+      padding-top: 70px;
+      padding-bottom: 60px;
+    }
+  
+    .load-more {
+      padding: 8px;
+     
+    }
+}  

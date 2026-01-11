@@ -1,0 +1,117 @@
+/* ✅ Centering the search container */
+.search-container {
+  max-width: 90%;
+  width: 500px;
+  margin: auto;
+  text-align: center;
+  padding: 20px;
+}
+
+/* ✅ Responsive Search Bar */
+.search-bar {
+  display: flex;
+  flex-wrap: wrap; /* ✅ Ensures wrapping on small screens */
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.search-bar input {
+  flex: 1;
+  min-width: 200px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.search-bar button {
+  padding: 10px 15px;
+  font-size: 16px;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.search-bar button:disabled {
+  background-color: gray;
+  cursor: not-allowed;
+}
+
+/* ✅ Scrollable User List */
+.user-list {
+  max-height: 300px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 5px;
+  background: #f9f9f9;
+}
+
+/* ✅ User Card (Responsive Grid) */
+.user-card {
+  padding: 15px;
+  margin-bottom: 10px;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+/* ✅ Error Message */
+.error {
+  color: red;
+  font-weight: bold;
+}
+
+/* ✅ User Details Section */
+.user-details {
+  margin-top: 20px;
+  padding: 10px;
+  background: #f1f1f1;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  text-align: left;
+}
+
+/* ✅ Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+  .search-container {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .search-bar {
+    flex-direction: column; /* ✅ Stacks input & button vertically */
+    gap: 5px;
+  }
+
+  .search-bar input {
+    width: 100%;
+    min-width: auto;
+  }
+
+  .search-bar button {
+    width: 100%;
+  }
+
+  .user-list {
+    max-height: 200px; /* ✅ Adjust scroll height for smaller screens */
+  }
+}
+
+/* ✅ Responsive Design for Larger Screens */
+@media (min-width: 1024px) {
+  .search-container {
+    max-width: 600px;
+  }
+
+  .user-list {
+    max-height: 400px; /* ✅ Increased height for larger screens */
+  }
+}

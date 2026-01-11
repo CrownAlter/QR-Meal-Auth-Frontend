@@ -1,0 +1,215 @@
+/* Sidebar */
+.sidebar {
+  width: 200px;
+  height: 100vh;
+  position: fixed;
+  left: -200px; /* Initially collapsed */
+  top: 0;
+  background-color: #1976d2;
+  color: white;
+  transition: left 0.3s ease-in-out;
+  padding-top: 60px;
+  z-index: 1000;
+}
+
+/* Sidebar Open State */
+.sidebar.open {
+  left: 0;
+}
+
+
+/* Overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 900;
+  display: none;
+}
+
+.overlay.active {
+  display: block;
+}
+
+.container {
+  transition: margin-left 0.3s ease-in-out;
+  margin-left: 0; /* Default position */
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 27px;
+}
+
+/* When sidebar is open, push content */
+.container.shifted {
+  margin-left: 220px; /* Adjust for proper spacing */
+}
+
+/* Ensure the menu button does NOT move */
+.menu-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #1976d2;
+  z-index: 1100; /* Keep above everything */
+}
+
+/* Responsive: Ensure the sidebar overlaps content instead of shifting it on small screens */
+@media (max-width: 768px) {
+  .container.shifted {
+    margin-left: 0; /* No shifting on mobile */
+  }
+}
+
+
+.welcome-card {
+  background: #ffffff !important; /* White background */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  transition: box-shadow 0.3s ease-in-out; /* Smooth hover effect */
+  padding: 25px;
+}
+
+
+.details{
+  margin-top: 7px;
+  margin-bottom: 7px;
+  margin-right: 7px;
+  margin-left: 0px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+}
+
+.stat-card {
+  background: #ffffff !important; /* White background */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  transition: box-shadow 0.3s ease-in-out; /* Smooth hover effect */
+  padding: 16px;
+  text-align: center;
+}
+
+.number {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 5px;
+  color: #1976d2;
+}
+
+.welcome-text{
+  margin-top: 2px;
+  margin-bottom: 9px;
+}
+
+.trend {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 5px;
+  color: purple;
+}
+
+/* .qr-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+} */
+
+.history-card {
+  padding: 16px;
+}
+
+mat-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.list-content {
+  flex: 1;
+}
+
+.qr-title {
+  font-weight: bold;
+}
+
+.qr-date {
+  color: gray;
+}
+
+.meal-history-title{
+  margin-bottom: 0px;
+  padding-left: 17px;
+}
+
+.download-icon {
+  color: #1976d2;
+  cursor: pointer;
+}
+
+.qr-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.qr-button {
+  background-color: rgba(37, 99, 235, 1); /* Blue color */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4); /* Soft shadow */
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 12px 24px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Space between icon and text */
+  text-transform: none;
+}
+
+.qr-button:hover {
+  background-color: #1565c0; /* Darker blue on hover */
+}
+
+.qr-icon {
+  font-size: 20px;
+}
+
+.history-card {
+  background: #ffffff !important; /* White background */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  transition: box-shadow 0.3s ease-in-out; /* Smooth hover effect */
+  max-height: 300px; /* Adjust height as needed */
+  overflow-y: auto;
+}
+
+.history-list {
+  max-height: 250px; /* Height inside the card */
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+mat-list {
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.main-content{
+  background-color: rgba(249, 250, 251, 1);
+}
+
+.view-more-btn {
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
+  color: #1976d2;
+  font-weight: bold;
+}

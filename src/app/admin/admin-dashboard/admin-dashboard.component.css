@@ -1,0 +1,136 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 27px;
+  }
+  
+  .welcome-card {
+    padding: 20px;
+  }
+  
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+  }
+
+  .stat-card {
+    padding: 16px;
+    text-align: center;
+    background: #ffffff !important; /* White background */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    transition: box-shadow 0.3s ease-in-out; /* Smooth hover effect */
+    padding: 16px;
+    text-align: center;
+  }
+  
+  .number {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1976d2;
+  }
+  
+  .trend {
+    font-size: 18px;
+    font-weight: bold;
+    color: purple;
+  }
+  
+  /* .qr-button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  } */
+  
+  .history-card {
+     padding-left: 20px;
+     background: #ffffff !important; /* White background */
+     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+     transition: box-shadow 0.3s ease-in-out; /* Smooth hover effect */
+     max-height: 300px; /* Adjust height as needed */
+     overflow-y: auto;
+   }
+    
+
+  
+    .welcome-text{
+      margin-top: 2px;
+      margin-bottom: 9px;
+    }
+
+  mat-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .list-content {
+    flex: 1;
+  }
+  
+  .qr-title {
+    font-weight: bold;
+  }
+  
+  .qr-date {
+    color: gray;
+  }
+  
+  .download-icon {
+    color: #1976d2;
+    cursor: pointer;
+  }
+  
+  .qr-button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  .qr-button {
+    background-color: #1976d2; /* Blue color */
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px 24px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Space between icon and text */
+    text-transform: none;
+  }
+  
+  .qr-button:hover {
+    background-color: #1565c0; /* Darker blue on hover */
+  }
+  
+  .qr-icon {
+    font-size: 20px;
+  }
+
+  .welcome-card {
+    background: #ffffff !important; /* White background */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    transition: box-shadow 0.3s ease-in-out; /* Smooth hover effect */
+    padding: 25px;
+  }
+
+  .details{
+    margin-top: 7px;
+    margin-bottom: 7px;
+    margin-right: 7px;
+    margin-left: 0px;
+  }
+
+  
+
+  .scan-button {
+    align-self: center;
+    margin: 20px 0;
+    width: 50%;
+    font-size: 16px;
+  }
+  
+  
+  

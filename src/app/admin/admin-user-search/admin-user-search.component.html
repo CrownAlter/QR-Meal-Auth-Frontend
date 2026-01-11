@@ -1,0 +1,32 @@
+<div class="search-container">
+  <h2>Admin User Management</h2>
+
+  <!-- Search Bar -->
+  <div class="search-bar">
+    <input [(ngModel)]="matricNumber" type="text" placeholder="Search by Matric Number" (input)="filterUsers()" />
+    <button (click)="searchUser()" [disabled]="isLoading">Search</button>
+  </div>
+
+  <p *ngIf="isLoading">Loading...</p>
+  <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+
+  <!-- ✅ Display searched user details separately -->
+  <div *ngIf="userDetails" class="user-details">
+    <h3>User Details</h3>
+    <p><strong>ID:</strong> {{ userDetails.id }}</p>
+    <p><strong>Username:</strong> {{ userDetails.username }}</p>
+    <p><strong>Email:</strong> {{ userDetails.email }}</p>
+    <p><strong>Matric Number:</strong> {{ userDetails.matricNumber }}</p>
+    <p><strong>Meal Plan:</strong> {{ userDetails.meal?.name || 'Not assigned' }}</p>
+  </div>
+
+  <!-- ✅ Scrollable User List -->
+  <div class="user-list">
+    <h3>All Users</h3>
+    <div *ngFor="let user of filteredUsers" class="user-card">
+      <p><strong>Username:</strong> {{ user.username }}</p>
+      <p><strong>Matric Number:</strong> {{ user.matricNumber }}</p>
+      <p><strong>Email:</strong> {{ user.email }}</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+<div class="container">
+    <!-- Welcome Card -->
+    <mat-card class="welcome-card">
+      <h2 class="welcome-text">Welcome Back, {{ userDetails?.username }}!</h2>
+      <p class="details"><strong>Worker's ID:</strong> {{ userDetails?.matricNumber }}</p>
+      <p class="details"><strong>Date of Onboarding: </strong></p>
+    </mat-card>
+  
+   
+  
+    <!-- Grid Layout -->
+    <div class="stats-grid">
+      <mat-card class="stat-card">
+        <h3>Number of Meal Requests</h3>
+        <p class="number"></p>
+      </mat-card>
+      <mat-card class="stat-card">
+        <h3>Active Users</h3>
+        <p class="trend"></p>
+      </mat-card>
+    </div>
+
+     <!-- QR Scanner Button -->
+     <button mat-raised-button color="primary" class="scan-button" (click)="toggleScanner()">
+        <mat-icon>qr_code_scanner</mat-icon> {{ showScanner ? 'Close Scanner' : 'Scan QR Code' }}
+      </button>
+    
+      <!-- QR Scanner Component (Only shown when showScanner is true) -->
+      <app-qr-scanner *ngIf="showScanner"></app-qr-scanner>
+  
+    <!-- QR Code History -->
+    <mat-card class="history-card">
+      <h3>Recent Meal Requests</h3>
+      <mat-list>
+        <mat-list-item *ngFor="let qr of qrHistory">
+          <div class="list-content">
+            <p class="qr-title">{{ qr.title }}</p>
+            <p class="qr-date">Generated on {{ qr.date }}</p>
+          </div>
+          <mat-icon class="download-icon">download</mat-icon>
+        </mat-list-item>
+      </mat-list>
+    </mat-card>
+  </div>
+  
