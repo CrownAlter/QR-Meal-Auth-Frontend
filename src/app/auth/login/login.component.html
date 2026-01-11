@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="login-form">
   <h2 class="login-header">Login</h2>
   <p class="login-text">Sign in to continue</p>
@@ -8,3 +9,15 @@
   </form>
   <p class="login-link">Don't have an account? <a routerLink="/register">Register</a></p>
 </div>
+=======
+<div class="login-form">
+  <h2 class="login-header">Login</h2>
+  <p class="login-text">Sign in to continue</p>
+  <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+    <input type="email" class="full-width" placeholder="Email address*" formControlName="email">
+    <input type="password" class="full-width" placeholder="Password*" formControlName="password">
+    <button type="submit" [disabled]="loginForm.invalid" class="submit-btn"><strong>Login</strong></button>
+  </form>
+  <p class="login-link">Don't have an account? <a routerLink="/register">Register</a></p>
+</div>
+>>>>>>> 774c2dbc15d0d1f2429daa384826b05dd6c18d0b

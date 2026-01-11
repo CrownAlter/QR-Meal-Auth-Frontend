@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!-- Sidebar (Stays Fixed) -->
 <div *ngIf="!isPublicPage() && !isAdminDashboard()" id="sidebar" class="sidebar">
   <!-- Close Button -->
@@ -46,3 +47,53 @@
 
 
 
+=======
+<!-- Sidebar (Stays Fixed) -->
+<div *ngIf="!isPublicPage() && !isAdminDashboard()" id="sidebar" class="sidebar">
+  <!-- Close Button -->
+  <span class="close-btn" (click)="closeSidebar()">✖</span>
+
+  <ul>
+    <li><i class="material-icons">dashboard</i><a href="/user-dashboard">Dashboard</a></li>
+    <li><i class="material-icons">restaurant</i><a href="#">Meal Plans</a></li>
+    <li><i class="material-icons">history</i> <a [routerLink]="'/qr-history'">QR History</a></li>
+    <li><i class="material-icons">logout</i><a href="#" (click)="logout()">Logout</a></li>
+    
+  </ul>
+</div>
+
+
+<div *ngIf="!isPublicPage() && isAdminDashboard()" id="sidebar" class="sidebar">
+  <!-- Close Button -->
+  <span class="close-btn" (click)="closeSidebar()">✖</span>
+
+  <ul>
+    <li><i class="material-icons">dashboard</i><a href="/user-dashboard">Dashboard</a></li>
+    <li><i class="material-icons">restaurant</i><a href="/user-search">Search for User</a></li>
+    <li><i class="material-icons">history</i><a href="#">Settings</a></li>
+    <li><i class="material-icons">logout</i><a href="#" (click)="logout()">Logout</a></li>
+  </ul>
+</div>
+
+<!-- Overlay -->
+<div *ngIf="!isPublicPage()" id="overlay" class="overlay" (click)="closeSidebar()"></div>
+
+<!-- 🟢 Wrapper to Shift Header + Dashboard -->
+<div class="main-wrapper" [class.shifted]="sidebarOpen">
+  <div *ngIf="!isPublicPage()" >
+    <!-- 🔵 HEADER (Moves with Dashboard) -->
+    <header class="header">
+      <button id="toggleSidebar" class="menu-btn" (click)="toggleSidebar()">☰</button>
+      <div class="header-text">
+        <p>QRMealApp</p>
+      </div>
+    </header>
+  </div>
+
+  <!-- 🔴 MAIN DASHBOARD (Moves with Sidebar) -->
+  <router-outlet></router-outlet>
+</div>
+
+
+
+>>>>>>> 774c2dbc15d0d1f2429daa384826b05dd6c18d0b

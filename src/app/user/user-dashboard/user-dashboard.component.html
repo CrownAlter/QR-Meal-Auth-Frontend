@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!-- Sidebar
 <div id="sidebar" class="sidebar">
   <ul>
@@ -69,3 +70,76 @@
 </mat-card>
  
 </div>
+=======
+<!-- Sidebar
+<div id="sidebar" class="sidebar">
+  <ul>
+    <li><a href="#">Dashboard</a></li>
+    <li><a href="#">Meal Plans</a></li>
+    <li><a href="#">QR History</a></li>
+    <li><a href="#">Settings</a></li>
+  </ul>
+</div>
+
+
+<div id="overlay" class="overlay" (click)="closeSidebar()"></div>
+<button id="toggleSidebar" class="menu-btn" (click)="toggleSidebar()">☰</button> -->
+
+
+<div class="main-content">
+  <div class="container">
+    <!-- Welcome Card -->
+    <mat-card class="welcome-card">
+      <h2 class="welcome-text">Welcome Back, {{ userDetails?.username }}</h2>
+      <p class="details">Matric Number:  {{ userDetails?.matricNumber }}</p>
+      <p class="details">Meal Plan:  {{ mealPlan}}</p>
+      <!-- <p class="details">Valid Until:</p> -->
+    </mat-card>
+  
+    <!-- Grid Layout -->
+    <div class="stats-grid">
+      <mat-card class="stat-card">
+        <h3>Meals Left</h3>
+        <p class="number">{{ mealsLeft }}</p>
+      </mat-card>
+      <mat-card class="stat-card">
+        <h3>Meals Used</h3>
+        <p class="trend">{{ mealsUsed }}</p>
+      </mat-card>
+    </div>
+  
+  
+  
+    <div class="qr-button-container">
+      <button mat-flat-button class="qr-button" (click)="toggleQRCode()">
+        <mat-icon class="qr-icon">qr_code</mat-icon> Generate QR Code
+      </button>
+    </div>
+    
+  
+    
+  <!-- QR Code Generator Component (Hidden until button is clicked) -->
+  <app-qr-generation *ngIf="showQRCode" [userData]="qrData"></app-qr-generation>
+  
+<!-- QR Code History -->
+<mat-card class="history-card">
+  <h3 class="meal-history-title">Meal History</h3>
+  <div class="history-list">
+    <mat-list class="meal-history-list">
+      <mat-list-item *ngFor="let meal of getLatestMealHistory()">
+        <div class="list-content">
+          <p class="qr-title">{{ meal.mealType | titlecase }}</p>
+          <p class="qr-date">Consumed on {{ meal.dateConsumed | date:'medium' }}</p>
+        </div>
+        <mat-icon class="history-icon">history</mat-icon>
+      </mat-list-item>
+    </mat-list>
+  </div>
+  <!-- ✅ View More Button -->
+  <button mat-button class="view-more-btn" [routerLink]="'/qr-history'" [queryParams]="{ userId: userDetails?.id }">
+    View More
+  </button>
+</mat-card>
+ 
+</div>
+>>>>>>> 774c2dbc15d0d1f2429daa384826b05dd6c18d0b

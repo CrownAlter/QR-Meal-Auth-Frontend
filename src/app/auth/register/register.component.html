@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <form class="register-form" [formGroup]="registerForm" (ngSubmit)="onRegister()">
   <h2 class="signup-header">Create Account</h2>
   <p class="signup-text">Sign up to get started</p>
@@ -26,3 +27,33 @@
   
   <p class="login-link">Already have an account? <a routerLink="/login">Login</a></p>
 </form>
+=======
+<form class="register-form" [formGroup]="registerForm" (ngSubmit)="onRegister()">
+  <h2 class="signup-header">Create Account</h2>
+  <p class="signup-text">Sign up to get started</p>
+  
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Full Name</mat-label>
+    <input matInput formControlName="name" required>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Email address</mat-label>
+    <input matInput type="email" formControlName="email" required>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Matric Number</mat-label> 
+    <input matInput formControlName="matricNo" required>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Password</mat-label>
+    <input matInput type="password" formControlName="password" required>
+  </mat-form-field>
+   
+  <button mat-raised-button color="primary" class="register-btn">Create Account</button>
+  
+  <p class="login-link">Already have an account? <a routerLink="/login">Login</a></p>
+</form>
+>>>>>>> 774c2dbc15d0d1f2429daa384826b05dd6c18d0b
