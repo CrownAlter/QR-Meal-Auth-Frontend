@@ -1,5 +1,13 @@
-<<<<<<< HEAD
-<!-- Sidebar (Stays Fixed) -->
+<!--
+  @fileoverview Root Application Template
+  @description Main layout template with sidebar navigation for user and admin views
+  
+  CHANGES MADE:
+  - Resolved Git merge conflict (kept HEAD version as both were identical)
+  - Added documentation comments
+-->
+
+<!-- User Sidebar (Visible for authenticated non-admin users) -->
 <div *ngIf="!isPublicPage() && !isAdminDashboard()" id="sidebar" class="sidebar">
   <!-- Close Button -->
   <span class="close-btn" (click)="closeSidebar()">✖</span>
@@ -7,32 +15,31 @@
   <ul>
     <li><i class="material-icons">dashboard</i><a href="/user-dashboard">Dashboard</a></li>
     <li><i class="material-icons">restaurant</i><a href="#">Meal Plans</a></li>
-    <li><i class="material-icons">history</i> <a [routerLink]="'/qr-history'">QR History</a></li>
+    <li><i class="material-icons">history</i><a [routerLink]="'/qr-history'">QR History</a></li>
     <li><i class="material-icons">logout</i><a href="#" (click)="logout()">Logout</a></li>
-    
   </ul>
 </div>
 
-
+<!-- Admin Sidebar (Visible for authenticated admin users) -->
 <div *ngIf="!isPublicPage() && isAdminDashboard()" id="sidebar" class="sidebar">
   <!-- Close Button -->
   <span class="close-btn" (click)="closeSidebar()">✖</span>
 
   <ul>
-    <li><i class="material-icons">dashboard</i><a href="/user-dashboard">Dashboard</a></li>
+    <li><i class="material-icons">dashboard</i><a href="/admin-dashboard">Dashboard</a></li>
     <li><i class="material-icons">restaurant</i><a href="/user-search">Search for User</a></li>
     <li><i class="material-icons">history</i><a href="#">Settings</a></li>
     <li><i class="material-icons">logout</i><a href="#" (click)="logout()">Logout</a></li>
   </ul>
 </div>
 
-<!-- Overlay -->
+<!-- Overlay (Closes sidebar when clicked) -->
 <div *ngIf="!isPublicPage()" id="overlay" class="overlay" (click)="closeSidebar()"></div>
 
-<!-- 🟢 Wrapper to Shift Header + Dashboard -->
+<!-- Main Content Wrapper (Shifts when sidebar opens) -->
 <div class="main-wrapper" [class.shifted]="sidebarOpen">
-  <div *ngIf="!isPublicPage()" >
-    <!-- 🔵 HEADER (Moves with Dashboard) -->
+  <!-- Header (Visible for authenticated users only) -->
+  <div *ngIf="!isPublicPage()">
     <header class="header">
       <button id="toggleSidebar" class="menu-btn" (click)="toggleSidebar()">☰</button>
       <div class="header-text">
@@ -41,59 +48,6 @@
     </header>
   </div>
 
-  <!-- 🔴 MAIN DASHBOARD (Moves with Sidebar) -->
+  <!-- Router Outlet - Main content area -->
   <router-outlet></router-outlet>
 </div>
-
-
-
-=======
-<!-- Sidebar (Stays Fixed) -->
-<div *ngIf="!isPublicPage() && !isAdminDashboard()" id="sidebar" class="sidebar">
-  <!-- Close Button -->
-  <span class="close-btn" (click)="closeSidebar()">✖</span>
-
-  <ul>
-    <li><i class="material-icons">dashboard</i><a href="/user-dashboard">Dashboard</a></li>
-    <li><i class="material-icons">restaurant</i><a href="#">Meal Plans</a></li>
-    <li><i class="material-icons">history</i> <a [routerLink]="'/qr-history'">QR History</a></li>
-    <li><i class="material-icons">logout</i><a href="#" (click)="logout()">Logout</a></li>
-    
-  </ul>
-</div>
-
-
-<div *ngIf="!isPublicPage() && isAdminDashboard()" id="sidebar" class="sidebar">
-  <!-- Close Button -->
-  <span class="close-btn" (click)="closeSidebar()">✖</span>
-
-  <ul>
-    <li><i class="material-icons">dashboard</i><a href="/user-dashboard">Dashboard</a></li>
-    <li><i class="material-icons">restaurant</i><a href="/user-search">Search for User</a></li>
-    <li><i class="material-icons">history</i><a href="#">Settings</a></li>
-    <li><i class="material-icons">logout</i><a href="#" (click)="logout()">Logout</a></li>
-  </ul>
-</div>
-
-<!-- Overlay -->
-<div *ngIf="!isPublicPage()" id="overlay" class="overlay" (click)="closeSidebar()"></div>
-
-<!-- 🟢 Wrapper to Shift Header + Dashboard -->
-<div class="main-wrapper" [class.shifted]="sidebarOpen">
-  <div *ngIf="!isPublicPage()" >
-    <!-- 🔵 HEADER (Moves with Dashboard) -->
-    <header class="header">
-      <button id="toggleSidebar" class="menu-btn" (click)="toggleSidebar()">☰</button>
-      <div class="header-text">
-        <p>QRMealApp</p>
-      </div>
-    </header>
-  </div>
-
-  <!-- 🔴 MAIN DASHBOARD (Moves with Sidebar) -->
-  <router-outlet></router-outlet>
-</div>
-
-
-
->>>>>>> 774c2dbc15d0d1f2429daa384826b05dd6c18d0b

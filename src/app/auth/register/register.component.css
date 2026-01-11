@@ -1,4 +1,8 @@
-<<<<<<< HEAD
+/**
+ * Register Component Styles
+ * ADDED: error-message class for displaying registration errors
+ */
+
 .register-form {
   width: 90%;
   max-width: 400px;
@@ -13,10 +17,7 @@
 .full-width {
   width: 80%;
   margin-bottom: 15px;
-  
 }
-
-
 
 button {
   margin-top: 10px;
@@ -25,8 +26,6 @@ button {
   border-radius: 5px;
   font-size: 16px;
 }
-
-
 
 .login-link {
   margin-top: 15px;
@@ -43,9 +42,6 @@ button {
   }
 }
 
-
-
-
 .signup-text{
   margin-top: 0px;
   margin-bottom: 25px;
@@ -59,65 +55,13 @@ button {
   color: white;
   background-color: rgba(37, 99, 235, 1);
 }
-=======
-.register-form {
-  width: 90%;
-  max-width: 400px;
-  margin: 50px auto;
-  padding: 20px;
-  background: white;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-  border-radius: 10px;
-  text-align: center;
-}
 
-.full-width {
-  width: 80%;
-  margin-bottom: 15px;
-  
-}
-
-
-
-button {
-  margin-top: 10px;
-  width: 80%;
-  padding: 10px;
-  border-radius: 5px;
-  font-size: 16px;
-}
-
-
-
-.login-link {
-  margin-top: 15px;
+/* ADDED: Error message styling */
+.error-message {
+  color: #dc2626;
   font-size: 14px;
+  margin-bottom: 15px;
+  padding: 10px;
+  background-color: #fef2f2;
+  border-radius: 5px;
 }
-
-@media (max-width: 600px) {
-  .register-form {
-    padding: 15px;
-  }
-
-  button {
-    font-size: 14px;
-  }
-}
-
-
-
-
-.signup-text{
-  margin-top: 0px;
-  margin-bottom: 25px;
-}
-
-.signup-header{
-  margin-bottom: 5px;
-}
-
-.mat-mdc-raised-button:not(:disabled){
-  color: white;
-  background-color: rgba(37, 99, 235, 1);
-}
->>>>>>> 774c2dbc15d0d1f2429daa384826b05dd6c18d0b

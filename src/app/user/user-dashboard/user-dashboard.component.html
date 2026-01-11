@@ -1,30 +1,23 @@
-<<<<<<< HEAD
-<!-- Sidebar
-<div id="sidebar" class="sidebar">
-  <ul>
-    <li><a href="#">Dashboard</a></li>
-    <li><a href="#">Meal Plans</a></li>
-    <li><a href="#">QR History</a></li>
-    <li><a href="#">Settings</a></li>
-  </ul>
-</div>
-
-
-<div id="overlay" class="overlay" (click)="closeSidebar()"></div>
-<button id="toggleSidebar" class="menu-btn" (click)="toggleSidebar()">☰</button> -->
-
+<!--
+  @fileoverview User Dashboard Template
+  @description Main dashboard view for users showing meal info, QR code generation, and history
+  
+  CHANGES MADE:
+  - Resolved Git merge conflict (kept HEAD version as both were identical)
+  - Removed commented-out sidebar code (now handled in app.component.html)
+  - Added documentation comments
+-->
 
 <div class="main-content">
   <div class="container">
-    <!-- Welcome Card -->
+    <!-- Welcome Card - Displays user information -->
     <mat-card class="welcome-card">
       <h2 class="welcome-text">Welcome Back, {{ userDetails?.username }}</h2>
-      <p class="details">Matric Number:  {{ userDetails?.matricNumber }}</p>
-      <p class="details">Meal Plan:  {{ mealPlan}}</p>
-      <!-- <p class="details">Valid Until:</p> -->
+      <p class="details">Matric Number: {{ userDetails?.matricNumber }}</p>
+      <p class="details">Meal Plan: {{ mealPlan }}</p>
     </mat-card>
   
-    <!-- Grid Layout -->
+    <!-- Stats Grid - Displays meal statistics -->
     <div class="stats-grid">
       <mat-card class="stat-card">
         <h3>Meals Left</h3>
@@ -36,110 +29,34 @@
       </mat-card>
     </div>
   
-  
-  
+    <!-- QR Code Generation Button -->
     <div class="qr-button-container">
       <button mat-flat-button class="qr-button" (click)="toggleQRCode()">
         <mat-icon class="qr-icon">qr_code</mat-icon> Generate QR Code
       </button>
     </div>
     
+    <!-- QR Code Display Component (Conditionally rendered) -->
+    <app-qr-generation *ngIf="showQRCode" [userData]="qrData"></app-qr-generation>
   
-    
-  <!-- QR Code Generator Component (Hidden until button is clicked) -->
-  <app-qr-generation *ngIf="showQRCode" [userData]="qrData"></app-qr-generation>
-  
-<!-- QR Code History -->
-<mat-card class="history-card">
-  <h3 class="meal-history-title">Meal History</h3>
-  <div class="history-list">
-    <mat-list class="meal-history-list">
-      <mat-list-item *ngFor="let meal of getLatestMealHistory()">
-        <div class="list-content">
-          <p class="qr-title">{{ meal.mealType | titlecase }}</p>
-          <p class="qr-date">Consumed on {{ meal.dateConsumed | date:'medium' }}</p>
-        </div>
-        <mat-icon class="history-icon">history</mat-icon>
-      </mat-list-item>
-    </mat-list>
-  </div>
-  <!-- ✅ View More Button -->
-  <button mat-button class="view-more-btn" [routerLink]="'/qr-history'" [queryParams]="{ userId: userDetails?.id }">
-    View More
-  </button>
-</mat-card>
- 
-</div>
-=======
-<!-- Sidebar
-<div id="sidebar" class="sidebar">
-  <ul>
-    <li><a href="#">Dashboard</a></li>
-    <li><a href="#">Meal Plans</a></li>
-    <li><a href="#">QR History</a></li>
-    <li><a href="#">Settings</a></li>
-  </ul>
-</div>
-
-
-<div id="overlay" class="overlay" (click)="closeSidebar()"></div>
-<button id="toggleSidebar" class="menu-btn" (click)="toggleSidebar()">☰</button> -->
-
-
-<div class="main-content">
-  <div class="container">
-    <!-- Welcome Card -->
-    <mat-card class="welcome-card">
-      <h2 class="welcome-text">Welcome Back, {{ userDetails?.username }}</h2>
-      <p class="details">Matric Number:  {{ userDetails?.matricNumber }}</p>
-      <p class="details">Meal Plan:  {{ mealPlan}}</p>
-      <!-- <p class="details">Valid Until:</p> -->
+    <!-- Meal History Card -->
+    <mat-card class="history-card">
+      <h3 class="meal-history-title">Meal History</h3>
+      <div class="history-list">
+        <mat-list class="meal-history-list">
+          <mat-list-item *ngFor="let meal of getLatestMealHistory()">
+            <div class="list-content">
+              <p class="qr-title">{{ meal.mealType | titlecase }}</p>
+              <p class="qr-date">Consumed on {{ meal.dateConsumed | date:'medium' }}</p>
+            </div>
+            <mat-icon class="history-icon">history</mat-icon>
+          </mat-list-item>
+        </mat-list>
+      </div>
+      <!-- View More Button - Links to full history -->
+      <button mat-button class="view-more-btn" [routerLink]="'/qr-history'" [queryParams]="{ userId: userDetails?.id }">
+        View More
+      </button>
     </mat-card>
-  
-    <!-- Grid Layout -->
-    <div class="stats-grid">
-      <mat-card class="stat-card">
-        <h3>Meals Left</h3>
-        <p class="number">{{ mealsLeft }}</p>
-      </mat-card>
-      <mat-card class="stat-card">
-        <h3>Meals Used</h3>
-        <p class="trend">{{ mealsUsed }}</p>
-      </mat-card>
-    </div>
-  
-  
-  
-    <div class="qr-button-container">
-      <button mat-flat-button class="qr-button" (click)="toggleQRCode()">
-        <mat-icon class="qr-icon">qr_code</mat-icon> Generate QR Code
-      </button>
-    </div>
-    
-  
-    
-  <!-- QR Code Generator Component (Hidden until button is clicked) -->
-  <app-qr-generation *ngIf="showQRCode" [userData]="qrData"></app-qr-generation>
-  
-<!-- QR Code History -->
-<mat-card class="history-card">
-  <h3 class="meal-history-title">Meal History</h3>
-  <div class="history-list">
-    <mat-list class="meal-history-list">
-      <mat-list-item *ngFor="let meal of getLatestMealHistory()">
-        <div class="list-content">
-          <p class="qr-title">{{ meal.mealType | titlecase }}</p>
-          <p class="qr-date">Consumed on {{ meal.dateConsumed | date:'medium' }}</p>
-        </div>
-        <mat-icon class="history-icon">history</mat-icon>
-      </mat-list-item>
-    </mat-list>
   </div>
-  <!-- ✅ View More Button -->
-  <button mat-button class="view-more-btn" [routerLink]="'/qr-history'" [queryParams]="{ userId: userDetails?.id }">
-    View More
-  </button>
-</mat-card>
- 
 </div>
->>>>>>> 774c2dbc15d0d1f2429daa384826b05dd6c18d0b

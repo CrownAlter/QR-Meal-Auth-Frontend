@@ -1,3 +1,11 @@
+/**
+ * @fileoverview QR Scanner Component
+ * @description Handles QR code scanning and validation for meal consumption
+ * 
+ * CHANGES MADE:
+ * - SECURITY FIX: Moved encryption keys to environment configuration
+ * - Added documentation comments
+ */
 import { Component } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { BarcodeFormat } from '@zxing/library';
@@ -11,13 +19,15 @@ import { environment } from '../../../environments/environment';
   styleUrl: './qr-scanner.component.css'
 })
 export class QrScannerComponent {
-  scannedData: any = null; // Holds the scanned QR code data
+  scannedData: any = null;
   allowedFormats = [BarcodeFormat.QR_CODE];
-  apiUrl = `${environment.apiUrl}/api/v1/meal/consume`; // Change to match your API
+  apiUrl = `${environment.apiUrl}/api/v1/meal/consume`;
   isValidating = false;
-  private secretKey = 'your-encryption-key';
-  private hmacKey = 'your-signing-key';
-  private scannedQRs = new Set(); // ✅ Prevent duplicate scans
+  
+  // SECURITY FIX: Keys now loaded from environment configuration
+  private secretKey = environment.encryptionKey;
+  private hmacKey = environment.hmacKey;
+  private scannedQRs = new Set(); // Prevent duplicate scans
 
   getMealType(timestamp: string): string {
     const date = new Date(timestamp); // Convert timestamp string to Date object
